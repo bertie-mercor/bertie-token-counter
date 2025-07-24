@@ -20,7 +20,9 @@ def extract_text_from_pdf(uploaded_file):
 def extract_text_from_csv(uploaded_file):
     try:
         df = pd.read_csv(uploaded_file, dtype=str)
-        return df.to_string(index=False)
+        df = " ".join(df.values.flatten())    
+        return df
+        
     except Exception as e:
         return None
 
